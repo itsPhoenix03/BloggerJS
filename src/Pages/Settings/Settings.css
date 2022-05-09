@@ -21,14 +21,18 @@
 }
 
 .settings-delete-acc {
+  padding: 0.75rem;
   font-size: 1.15rem;
-  color: rgb(220, 10, 10);
+  font-weight: 600;
+  background-color: rgb(229, 31, 31);
+  color: #f4f4f4;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .settings-delete-acc:hover {
-  transition: 0.5s ease-in;
-  border-bottom: 1px solid #dacc87;
+  background-color: rgb(176, 23, 23);
 }
 
 .settings-form {

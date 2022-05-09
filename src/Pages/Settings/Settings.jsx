@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { Context } from "../../Context/Context";
+import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 import "./Settings.css";
 
 // import { user as userPic } from "../../Assets/images";
@@ -11,8 +12,8 @@ const Settings = () => {
   const { user, dispatch } = useContext(Context);
 
   const [file, setFile] = useState(null);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
 
   const [success, setSuccess] = useState(false);
@@ -73,9 +74,9 @@ const Settings = () => {
       <div className="settings-wrapper">
         <div className="settings-top-section">
           <h3 className="settings-update-acc">Update Your Account</h3>
-          <h5 className="settings-delete-acc" onClick={handleDelete}>
+          <button className="settings-delete-acc" onClick={handleDelete}>
             Delete Account
-          </h5>
+          </button>
         </div>
 
         <form action="" onSubmit={handleSubmit} className="settings-form">
@@ -85,7 +86,9 @@ const Settings = () => {
             <img
               src={
                 !file
-                  ? `http://localhost:5000/Images/${user.profilePicture}`
+                  ? user.profilePicture
+                    ? `http://localhost:5000/Images/${user.profilePicture}`
+                    : noProfilePic
                   : URL.createObjectURL(file)
               }
               alt=""
@@ -129,8 +132,9 @@ const Settings = () => {
           <input
             type="password"
             id="settings-password"
-            placeholder="Enter your new password"
+            placeholder="Confirm your password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
           <button type="submit" className="settings-update-btn">
@@ -139,7 +143,7 @@ const Settings = () => {
         </form>
 
         {success && (
-          <p style={{ color: "green" }}>
+          <p style={{ color: "aquamarine" }}>
             Updated Your Information (Please, Login Again to see Changes!)
           </p>
         )}

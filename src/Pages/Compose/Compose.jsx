@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { FaRegFileImage } from "react-icons/fa";
+import noImage from "../../Assets/no-image.jpg";
 import "./Compose.css";
 
 const Compose = ({ user }) => {
@@ -45,12 +46,14 @@ const Compose = ({ user }) => {
 
   return (
     <div className="compose">
-      {file && (
+      {file ? (
         <img
           src={URL.createObjectURL(file)}
           alt=""
           className="compose-post-img"
         />
+      ) : (
+        <img src={noImage} alt="" className="compose-post-img" />
       )}
       <form action="" onSubmit={handleSubmit} className="compose-form">
         <div className="compose-form-group">

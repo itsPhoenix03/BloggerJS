@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import noImage from "../../Assets/no-image.jpg";
 import "./SinglePost.css";
 
 const SinglePost = ({ user }) => {
@@ -54,7 +55,9 @@ const SinglePost = ({ user }) => {
     <div className="single-post">
       <div className="single-post-wapper">
         <img
-          src={`http://localhost:5000/Images/${post.image}`}
+          src={
+            post.image ? `http://localhost:5000/Images/${post.image}` : noImage
+          }
           alt="blog-img"
         />
 

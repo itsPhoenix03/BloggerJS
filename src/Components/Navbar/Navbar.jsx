@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { Context } from "../../Context/Context";
+import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 import "./Navbar.css";
 
 const Navbar = ({ user }) => {
@@ -60,7 +61,11 @@ const Navbar = ({ user }) => {
           <>
             <div className="navbar-user-profile">
               <img
-                src={`http://localhost:5000/Images/${user.profilePicture}`}
+                src={
+                  user.profilePicture
+                    ? `http://localhost:5000/Images/${user.profilePicture}`
+                    : noProfilePic
+                }
                 alt="user-img"
               />
               <p>{user.username}</p>
