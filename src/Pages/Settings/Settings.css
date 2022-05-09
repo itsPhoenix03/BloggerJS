@@ -1,0 +1,155 @@
+.settings {
+  display: flex;
+}
+
+.settings-wrapper {
+  flex: 9;
+  padding: 2rem;
+}
+
+.settings-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.settings-update-acc {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #dacc87;
+}
+
+.settings-delete-acc {
+  font-size: 1.15rem;
+  color: rgb(220, 10, 10);
+  cursor: pointer;
+}
+
+.settings-delete-acc:hover {
+  transition: 0.5s ease-in;
+  border-bottom: 1px solid #dacc87;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-form > h4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: #f4f4f4;
+  margin-bottom: 0;
+}
+
+.settings-profile {
+  display: flex;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+
+.settings-profile > img {
+  width: 20%;
+  height: 20%;
+  border-radius: 10px;
+}
+
+.settings-profile-icon {
+  font-size: 3rem;
+  color: #dacc87;
+  margin-left: 3rem;
+  cursor: pointer;
+}
+
+.settings-profile-icon:hover {
+  transition: 70ms ease-in;
+  border: 1px solid #999;
+  border-radius: 50%;
+  padding: 0.15rem;
+}
+
+.settings-username,
+.settings-email,
+.settings-password {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: #f4f4f4;
+  margin: 1rem 0 0 0;
+}
+
+.settings-form > input {
+  background-color: transparent;
+  color: #dacc87;
+  padding: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #999;
+  outline: none;
+  margin: 0 0 2rem 0;
+}
+
+.settings-form > input:focus {
+  transition: 0.5s ease-in;
+  border-bottom: 1px solid #dacc87;
+}
+
+.settings-update-btn {
+  width: 25%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #dacc87;
+  color: #1e1e1e;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  align-self: end;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+  .settings-wrapper {
+    padding: 1rem;
+  }
+
+  .settings-top-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .settings-update-acc {
+    font-size: 2.5rem;
+  }
+
+  .settings-delete-acc {
+    font-size: 1rem;
+  }
+
+  .settings-form > h4 {
+    font-size: 1.5rem;
+  }
+
+  .settings-profile > img {
+    width: 45%;
+    height: 45%;
+  }
+
+  .settings-profile-icon {
+    font-size: 1.75rem;
+  }
+
+  .settings-form > label {
+    font-size: 1.5rem;
+  }
+
+  .settings-form > input {
+    font-size: 1rem;
+  }
+
+  .settings-update-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}

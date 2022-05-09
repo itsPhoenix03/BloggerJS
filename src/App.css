@@ -1,0 +1,7 @@
+.App {
+  background-color: #3c3c3c;
+  min-height: 100vh;
+  height: fit-content;
+  color: #eee;
+  font-family: "Open Sans", sans-serif;
+}

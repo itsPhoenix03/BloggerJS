@@ -1,0 +1,162 @@
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaRegTimesCircle } from "react-icons/fa";
+import { Context } from "../../Context/Context";
+import "./Navbar.css";
+
+const Navbar = ({ user }) => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const { dispatch } = useContext(Context);
+
+  const handleLogout = () => dispatch({ type: "Logout" });
+
+  return (
+    <div className="navbar">
+      <div className="navbar-left">
+        <h1>BoggerJS</h1>
+      </div>
+
+      <div className="navbar-center">
+        <ul className="navbar-sections">
+          <li className="navbar-sections-item">
+            <Link to="/" className="link">
+              Home
+            </Link>
+          </li>
+          <li className="navbar-sections-item">
+            <Link to="/compose" className="link">
+              Compose
+            </Link>
+          </li>
+          <li className="navbar-sections-item">
+            <Link to="/" className="link">
+              Blogs
+            </Link>
+          </li>
+          <li className="navbar-sections-item">
+            <Link to="/settings" className="link">
+              Settings
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className="navbar-right">
+        {!user ? (
+          <>
+            <button className="navbar-login">
+              <Link to="/login" className="link">
+                Login
+              </Link>
+            </button>
+            <button className="navbar-register">
+              <Link to="/register" className="link">
+                Register
+              </Link>
+            </button>
+          </>
+        ) : (
+          <>
+            <div className="navbar-user-profile">
+              <img
+                src={`http://localhost:5000/Images/${user.profilePicture}`}
+                alt="user-img"
+              />
+              <p>{user.username}</p>
+            </div>
+            <button className="navbar-logout" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        )}
+
+        <div className="navbar-small-screen">
+          <GiHamburgerMenu
+            className="navbar-open-overlay"
+            onClick={() => setToggleMenu(true)}
+          />
+          {toggleMenu && (
+            <div className="navbar-overlay">
+              <FaRegTimesCircle
+                className="navbar-close-overlay"
+                onClick={() => setToggleMenu(false)}
+              />
+              <ul className="navbar-sections-sm">
+                <li className="navbar-sections-item-sm">
+                  <Link
+                    to="/"
+                    className="link"
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="navbar-sections-item-sm">
+                  <Link
+                    to="/compose"
+                    className="link"
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    Compose
+                  </Link>
+                </li>
+                <li className="navbar-sections-item-sm">
+                  <Link
+                    to="/"
+                    className="link"
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    Blogs
+                  </Link>
+                </li>
+                <li className="navbar-sections-item-sm">
+                  <Link
+                    to="/settings"
+                    className="link"
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    Settings
+                  </Link>
+                </li>
+                {!user ? (
+                  <>
+                    <li className="navbar-sections-item-sm">
+                      <Link
+                        to="/login"
+                        className="link"
+                        onClick={() => setToggleMenu(false)}
+                      >
+                        Login
+                      </Link>
+                    </li>
+                    <li className="navbar-sections-item-sm">
+                      <Link
+                        to="/register"
+                        className="link"
+                        onClick={() => setToggleMenu(false)}
+                      >
+                        Register
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li
+                      className="navbar-sections-item-sm"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

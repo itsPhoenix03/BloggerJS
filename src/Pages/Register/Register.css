@@ -1,0 +1,97 @@
+.register {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  color: #1e1e1e;
+}
+
+.register > h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.register-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.register-form > label {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.register-form > input {
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  outline: none;
+  border-bottom: 1px solid #1e1e1e;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.register-btn {
+  border: none;
+  padding: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  background-color: #f08080;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.register-login-btn {
+  position: absolute;
+  top: 7rem;
+  right: 5rem;
+  padding: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #008080;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+  .register {
+    padding: 1rem;
+  }
+  .register > h2 {
+    font-size: 2.5rem;
+  }
+
+  .register-form {
+    width: 100%;
+  }
+
+  .register-form > label {
+    font-size: 2rem;
+  }
+
+  .register-form > input {
+    font-size: 1rem;
+  }
+
+  .register-login-btn {
+    position: initial;
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
