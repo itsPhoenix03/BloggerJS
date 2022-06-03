@@ -1,8 +1,8 @@
 import axios from "axios";
 
 //BASE URL
-const BASE_URL = "http://localhost:5000/api/";
-export const URL = "http://localhost:5000";
+const BASE_URL = "https://bloggerjsserver.herokuapp.com/api";
+export const URL = "https://bloggerjsserver.herokuapp.com";
 
 export const Request = axios.create({
   baseURL: BASE_URL,

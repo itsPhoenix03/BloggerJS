@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { Context } from "../../Context/Context";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
+import logo from "../../Assets/BloggerJS-crop.png";
 import "./Navbar.css";
 
 const Navbar = ({ user }) => {
@@ -15,7 +16,7 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <h1>BoggerJS</h1>
+        <img src={logo} alt="" />
       </div>
 
       <div className="navbar-center">
