@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import noImage from "../../../Assets/no-image.jpg";
+import { URL } from "../../../Request";
 import "./Post.css";
 
 const Post = ({ post }) => {
@@ -8,9 +9,7 @@ const Post = ({ post }) => {
   return (
     <div className="post">
       <img
-        src={
-          post.image ? `http://localhost:5000/Images/${post.image}` : noImage
-        }
+        src={post.image ? `${URL}/Images/${post.image}` : noImage}
         alt="blog-img"
       />
 
