@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import axios from "axios";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { Request, URL } from "../../Request";
 import noImage from "../../Assets/no-image.jpg";
 import "./SinglePost.css";
 
@@ -14,7 +14,7 @@ const SinglePost = ({ user }) => {
 
   useEffect(() => {
     const fetchSinglePost = async () => {
-      const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+      const res = await Request.get(`/posts/${id}`);
 
       setPost(res.data);
       setTitle(res.data.title);
@@ -26,7 +26,7 @@ const SinglePost = ({ user }) => {
 
   const handleEdit = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/posts/${post._id}`, {
+      await Request.put(`/posts/${post._id}`, {
         author: user.username,
         title,
         description: content,
@@ -40,7 +40,7 @@ const SinglePost = ({ user }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
+      await Request.delete(`/posts/${post._id}`, {
         data: {
           author: user.username,
         },
@@ -55,9 +55,7 @@ const SinglePost = ({ user }) => {
     <div className="single-post">
       <div className="single-post-wapper">
         <img
-          src={
-            post.image ? `http://localhost:5000/Images/${post.image}` : noImage
-          }
+          src={post.image ? `${URL}/Images/${post.image}` : noImage}
           alt="blog-img"
         />
 

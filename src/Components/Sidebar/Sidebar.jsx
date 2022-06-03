@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Request } from "../../Request";
 import "./Sidebar.css";
 
 import image from "../../Assets/bgLightMobile.jpg";
-import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await Request.get("/categories");
 
       setCategories(res.data);
     };

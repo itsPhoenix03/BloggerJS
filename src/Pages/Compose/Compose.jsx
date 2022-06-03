@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
 import { FaRegFileImage } from "react-icons/fa";
 import noImage from "../../Assets/no-image.jpg";
 import "./Compose.css";
+import { Request } from "../../Request";
 
 const Compose = ({ user }) => {
   const titleRef = useRef();
@@ -29,14 +29,14 @@ const Compose = ({ user }) => {
       newBlog.image = filename;
 
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await Request.post("/upload", data);
       } catch (error) {
         console.log(error);
       }
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", newBlog);
+      const res = await Request.post("/posts", newBlog);
 
       window.location.replace(`#/post/${res.data._id}`);
     } catch (error) {

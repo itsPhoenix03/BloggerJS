@@ -2,11 +2,9 @@ import React, { useContext, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { Context } from "../../Context/Context";
+import { Request, URL } from "../../Request";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 import "./Settings.css";
-
-// import { user as userPic } from "../../Assets/images";
-import axios from "axios";
 
 const Settings = () => {
   const { user, dispatch } = useContext(Context);
@@ -38,17 +36,14 @@ const Settings = () => {
       updatedUser.profilePicture = filename;
 
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await Request.post("/upload", data);
       } catch (error) {
         console.log(error);
       }
     }
 
     try {
-      await axios.put(
-        `http://localhost:5000/api/user/${user._id}`,
-        updatedUser
-      );
+      await Request.put(`/user/${user._id}`, updatedUser);
 
       setSuccess(true);
     } catch (error) {
@@ -60,7 +55,7 @@ const Settings = () => {
     e.preventDefault();
 
     try {
-      await axios.delete(`http://localhost:5000/api/user/${user._id}`);
+      await Request.delete(`/user/${user._id}`);
       dispatch({ type: "Logout" });
 
       window.location.replace(`#/`);
@@ -87,7 +82,7 @@ const Settings = () => {
               src={
                 !file
                   ? user.profilePicture
-                    ? `http://localhost:5000/Images/${user.profilePicture}`
+                    ? `${URL}/Images/${user.profilePicture}`
                     : noProfilePic
                   : URL.createObjectURL(file)
               }

@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { Context } from "../../Context/Context";
+import { Request } from "../../Request";
 import "./Login.css";
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
     dispatch({ type: "Login_Process_Started" });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await Request.post("/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
