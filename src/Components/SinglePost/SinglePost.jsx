@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
-import { Request, URL } from "../../Request";
+import { Request } from "../../Request";
 import noImage from "../../Assets/no-image.jpg";
 import "./SinglePost.css";
 
@@ -54,10 +54,7 @@ const SinglePost = ({ user }) => {
   return (
     <div className="single-post">
       <div className="single-post-wapper">
-        <img
-          src={post.image ? `${URL}/Images/${post.image}` : noImage}
-          alt="blog-img"
-        />
+        <img src={post.image ? post.image : noImage} alt="blog-img" />
 
         {updateMode ? (
           <input

@@ -1,17 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import noImage from "../../../Assets/no-image.jpg";
-import { URL } from "../../../Request";
 import "./Post.css";
 
 const Post = ({ post }) => {
   const isEmpty = post.categories.length === 0 ? true : false;
   return (
     <div className="post">
-      <img
-        src={post.image ? `${URL}/Images/${post.image}` : noImage}
-        alt="blog-img"
-      />
+      <img src={post.image ? post.image : noImage} alt="blog-img" />
 
       <div className="post-info">
         <Link to={`/post/${post._id}`} className="link">
