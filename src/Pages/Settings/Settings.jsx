@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { Context } from "../../Context/Context";
-import { Request, URL } from "../../Request";
+import { Request } from "../../Request";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 import "./Settings.css";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -30,7 +30,7 @@ const Settings = () => {
       const filename = Date.now() + file.name;
 
       //Firebase Upload
-      const storageRef = ref(storage, filename);
+      const storageRef = ref(storage, `profilePictures/${filename}`);
       const uploadImage = uploadBytesResumable(storageRef, file);
 
       await uploadImage.on(
