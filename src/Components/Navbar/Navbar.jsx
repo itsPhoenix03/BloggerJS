@@ -62,11 +62,7 @@ const Navbar = ({ user }) => {
           <>
             <div className="navbar-user-profile">
               <img
-                src={
-                  user.profilePicture
-                    ? `http://localhost:5000/Images/${user.profilePicture}`
-                    : noProfilePic
-                }
+                src={user.profilePicture ? user.profilePicture : noProfilePic}
                 alt="user-img"
               />
               <p>{user.username}</p>
