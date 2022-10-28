@@ -5,6 +5,8 @@ import { Context } from "../../Context/Context";
 import { Request, URL } from "../../Request";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 import "./Settings.css";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../firebase";
 
 const Settings = () => {
   const { user, dispatch } = useContext(Context);
@@ -13,8 +15,59 @@ const Settings = () => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
+  const [profilePic, setProfilePic] = useState(
+    user.profilePic ? user.profilePic : null
+  );
 
+  const [disabled, setDisabled] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const uploadProfilePic = async (file) => {
+    if (file) {
+      setFile(file);
+      setDisabled(true);
+
+      const filename = Date.now() + file.name;
+
+      //Firebase Upload
+      const storageRef = ref(storage, filename);
+      const uploadImage = uploadBytesResumable(storageRef, file);
+
+      await uploadImage.on(
+        "state_changed",
+        (snapshot) => {
+          // const progress = Math.round(
+          //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          // );
+          // console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+            default:
+              console.log("default");
+          }
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+          console.log(error.message);
+        },
+        () => {
+          // Handle successful uploads on complete
+          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          getDownloadURL(uploadImage.snapshot.ref).then(async (downloadURL) => {
+            console.log("File available at", downloadURL);
+
+            setProfilePic(downloadURL);
+            setDisabled(false);
+          });
+        }
+      );
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,21 +79,7 @@ const Settings = () => {
       password,
     };
 
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-
-      data.append("name", filename);
-      data.append("file", file);
-
-      updatedUser.profilePicture = filename;
-
-      try {
-        await Request.post("/upload", data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    if (file) updatedUser.profilePicture = profilePic;
 
     try {
       await Request.put(`/user/${user._id}`, updatedUser);
@@ -82,7 +121,7 @@ const Settings = () => {
               src={
                 !file
                   ? user.profilePicture
-                    ? `${URL}/Images/${user.profilePicture}`
+                    ? user.profilePicture
                     : noProfilePic
                   : URL.createObjectURL(file)
               }
@@ -97,7 +136,7 @@ const Settings = () => {
               type="file"
               id="settings-profile-pic"
               style={{ display: "none" }}
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => uploadProfilePic(e.target.files[0])}
             />
           </div>
 
@@ -132,7 +171,11 @@ const Settings = () => {
             required
           />
 
-          <button type="submit" className="settings-update-btn">
+          <button
+            type="submit"
+            disabled={disabled}
+            className="settings-update-btn"
+          >
             Update
           </button>
         </form>

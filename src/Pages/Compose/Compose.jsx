@@ -75,15 +75,12 @@ const Compose = ({ user }) => {
 
   return (
     <div className="compose">
-      {file ? (
-        <img
-          src={URL.createObjectURL(file)}
-          alt=""
-          className="compose-post-img"
-        />
-      ) : (
-        <img src={noImage} alt="" className="compose-post-img" />
-      )}
+      <img
+        src={file ? URL.createObjectURL(file) : noImage}
+        alt=""
+        className="compose-post-img"
+      />
+
       <form action="" onSubmit={handleSubmit} className="compose-form">
         <div className="compose-form-group">
           <label htmlFor="compose-add-img">
