@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Posts from "../../Components/Posts/Posts";
-import Sidebar from "../../Components/Sidebar/Sidebar";
+import Footer from "../../Components/Footer/Footer";
 import { Request } from "../../Request";
 import "./Home.css";
 
@@ -23,8 +23,8 @@ const Home = () => {
       <Header />
       <div className="home">
         <Posts posts={posts} />
-        <Sidebar />
       </div>
+      <Footer />
     </>
   );
 };

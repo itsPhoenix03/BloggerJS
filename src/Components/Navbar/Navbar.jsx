@@ -1,17 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegTimesCircle } from "react-icons/fa";
-import { Context } from "../../Context/Context";
+// import { Context } from "../../Context/Context";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
-import logo from "../../Assets/BloggerJS-crop.png";
+import logo from "../../Assets/BloggerJS.svg";
 import "./Navbar.css";
 
 const Navbar = ({ user }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const { dispatch } = useContext(Context);
+  // const { dispatch } = useContext(Context);
 
-  const handleLogout = () => dispatch({ type: "Logout" });
+  // const handleLogout = () => dispatch({ type: "Logout" });
 
   return (
     <div className="navbar">
@@ -32,7 +32,7 @@ const Navbar = ({ user }) => {
             </Link>
           </li>
           <li className="navbar-sections-item">
-            <Link to="/" className="link">
+            <Link to="/blogs" className="link">
               Blogs
             </Link>
           </li>
@@ -61,15 +61,12 @@ const Navbar = ({ user }) => {
         ) : (
           <>
             <div className="navbar-user-profile">
+              <p>{user.username}</p>
               <img
                 src={user.profilePicture ? user.profilePicture : noProfilePic}
                 alt="user-img"
               />
-              <p>{user.username}</p>
             </div>
-            <button className="navbar-logout" onClick={handleLogout}>
-              Logout
-            </button>
           </>
         )}
 
@@ -121,7 +118,7 @@ const Navbar = ({ user }) => {
                     Settings
                   </Link>
                 </li>
-                {!user ? (
+                {!user && (
                   <>
                     <li className="navbar-sections-item-sm">
                       <Link
@@ -140,15 +137,6 @@ const Navbar = ({ user }) => {
                       >
                         Register
                       </Link>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li
-                      className="navbar-sections-item-sm"
-                      onClick={handleLogout}
-                    >
-                      Logout
                     </li>
                   </>
                 )}

@@ -3,39 +3,35 @@ import { Link } from "react-router-dom";
 import noImage from "../../../Assets/no-image.jpg";
 import "./Post.css";
 
-const Post = ({ post }) => {
-  const isEmpty = post.categories.length === 0 ? true : false;
+const Post = ({ post, index }) => {
   return (
-    <div className="post">
-      <img src={post.image ? post.image : noImage} alt="blog-img" />
+    <Link to={`/post/${post._id}`} className="link">
+      <div className="post">
+        <img
+          src={post.image ? post.image : noImage}
+          alt="blog-img"
+          style={{
+            height: `${!(index % 2) && index !== 8 ? "30rem" : "25rem"}`,
+          }}
+        />
 
-      <div className="post-info">
-        <Link to={`/post/${post._id}`} className="link">
+        <div className="post-info">
           <h3 className="post-title">{post.title}</h3>
-        </Link>
 
-        <div className="post-sub-info">
-          <h4 className="post-author">{post.author}</h4>
-
-          <div className="divider" />
-
-          <div className="post-categories">
-            {!isEmpty ? (
-              post.categories.map((category) => (
-                <h6 className="post-category" key={category._id}>
-                  {category.name}
-                </h6>
-              ))
-            ) : (
-              <h6 className="post-category">No Category Specified</h6>
-            )}
-          </div>
+          <p className="post-date">
+            {new Date(post?.updatedAt)
+              .toDateString()
+              .split(" ")
+              .splice(1, 2)
+              .join(" ")}
+          </p>
         </div>
-        <p className="post-date">({new Date(post.updatedAt).toDateString()})</p>
-      </div>
 
-      <p className="post-description">{post.description}</p>
-    </div>
+        <p className="post-description">
+          {post.description.substring(0, post.description.indexOf("\n")).trim()}
+        </p>
+      </div>
+    </Link>
   );
 };
 

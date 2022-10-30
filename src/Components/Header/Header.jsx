@@ -9,7 +9,7 @@ const Header = () => {
       <div className="header-title">
         <h4>Dive into the Ocean of Blogs!</h4>
       </div>
-      <img src={header} alt="" className="header-img" />
+      {/* <img src={header} alt="" className="header-img" /> */}
     </div>
   );
 };

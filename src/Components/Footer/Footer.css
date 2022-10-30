@@ -1,0 +1,89 @@
+.footer-container {
+  /* border: 1px solid red; */
+  margin: 0;
+  margin-top: 5rem;
+  height: 35vh;
+  /* width: 100%; */
+
+  background-color: var(--overlay-color);
+
+  display: grid;
+  grid-template-columns: repeat(2, 33%) 30%;
+  gap: 1%;
+
+  overflow: hidden;
+}
+
+.left-section > h4 {
+  margin: 2rem 5rem;
+  font-family: var(--title-font);
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.center-section {
+  justify-self: center;
+  align-self: start;
+  position: relative;
+}
+
+.center-section > img {
+  margin-top: -6rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.center-section > span {
+  position: absolute;
+  top: 14rem;
+  left: 0.5rem;
+  font-family: var(--subtitle-font);
+}
+
+.right-section {
+  margin-top: 3rem;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icon {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin: 0 0.5rem;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.footer-icon:hover {
+  color: var(--color-hover);
+}
+
+.signup-btn {
+  margin-top: 1.5rem;
+}
+
+.sign-up-btn {
+  margin-left: 8.25rem;
+  background: transparent;
+  width: 15rem;
+  padding: 1rem 4rem;
+  font-family: var(--title-font);
+  font-size: 1rem;
+  border-color: var(--text-color);
+  cursor: pointer;
+}
+
+.sign-up-btn:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
+}
+
+@media screen and (max-width: 650px) {
+  .sidebar {
+    display: none;
+  }
+}

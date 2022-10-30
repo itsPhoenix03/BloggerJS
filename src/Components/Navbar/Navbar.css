@@ -1,9 +1,9 @@
 .navbar {
-  background-color: #050606;
+  background-color: rgb(253 240 228);
   height: 4.5rem;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #dacc87;
+  border-bottom: 2px solid #dacc87;
 
   display: flex;
   justify-content: center;
@@ -45,6 +45,8 @@
 
 .navbar-sections-item {
   margin: 0 2rem;
+  font-family: var(--subtitle-font);
+  font-size: 1.09rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -80,7 +82,7 @@
   width: 60%;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.15rem;
-  color: #dacc87;
+  color: #20303c;
   font-weight: 600;
   margin-left: 0.5rem;
 }

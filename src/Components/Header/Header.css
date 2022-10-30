@@ -1,10 +1,10 @@
 .header {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 7rem 0;
 }
 
 .header-title > h4 {
-  color: #dacc87;
-  font-family: "Josefin Sans", sans-serif;
+  color: #20303c;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
   font-size: 1.5rem;
   text-align: center;
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
-import Sidebar from "../../Components/Sidebar/Sidebar";
+// import Sidebar from "../../Components/Sidebar/Sidebar";
 import { Context } from "../../Context/Context";
 import { Request } from "../../Request";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
@@ -187,7 +187,7 @@ const Settings = () => {
         )}
       </div>
 
-      <Sidebar />
+      {/* <Sidebar /> */}
     </div>
   );
 };

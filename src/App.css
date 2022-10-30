@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&display=swap");
+
+:root {
+  --color-hover: rgb(157, 105, 63);
+  --title-font: "Fraunces", serif;
+  --content-font: Helvetica, sans-serif;
+  --subtitle-font: "Josefin Sans", sans-serif;
+  --overlay-color: rgb(253 240 228);
+  --text-color: #20303c;
+}
+
 .App {
-  background-color: #3c3c3c;
-  min-height: 100vh;
-  height: fit-content;
-  color: #eee;
-  font-family: "Open Sans", sans-serif;
+  /* border: 1px solid red; */
+  background-color: rgb(249 232 220);
+  min-height: 300vh;
+  /* height: fit-content; */
+  color: #20303c;
+  font-family: Helvetica, "Open Sans", sans-serif;
 }
