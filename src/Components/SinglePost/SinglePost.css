@@ -1,9 +1,18 @@
 .single-post {
-  flex: 9;
+  /* flex: 9; */
+  width: 68%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 40% 23%;
+  gap: 37%;
 }
 
 .single-post-wapper {
-  padding: 5rem;
+  background-color: var(--overlay-color);
+  width: 45rem;
+  margin: auto;
+  margin-top: 8.5rem;
+  padding: 3rem;
 
   display: flex;
   flex-direction: column;
@@ -11,22 +20,29 @@
 
 .single-post-wapper > img {
   width: 100%;
-  height: 25rem;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .single-post-title {
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.single-post-context-line {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 2.75rem;
-  color: #dacc87;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
 }
 
 .single-post-title-update {
   background-color: transparent;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 2.75rem;
-  color: #dacc87;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  color: var(--text-color);
   margin: 2rem 0;
 
   outline: none;
@@ -34,72 +50,119 @@
 }
 
 .single-post-title-update:focus {
-  transition: 0.5s ease-in;
-  border-left: 1px solid #f4f4f4;
+  transition: 0.5s ease-in width;
+  border-left: 0.5px solid var(--color-hover);
 }
 
 .single-post-info {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 40% 55%;
+  gap: 5%;
+
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  /* justify-content: flex-start;
+  align-items: center; */
+}
+
+.post-author-date-wrapper {
+  display: grid;
+  grid-template-columns: 20% auto auto;
+  gap: 0;
+}
+
+.post-author-date-wrapper > img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .single-post-author {
   font-family: "Josefin Sans", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  width: 60%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  align-self: center;
+  width: fit-content;
 }
 
 .single-post-author-name {
   padding-left: 0.5rem;
 }
 
-.single-post-divider {
-  width: 1px;
-  height: 3.5rem;
-  background-color: #dacc87;
-  margin: 0 2rem;
+.single-post-update {
+  /* width: 60%; */
+  font-family: "Josefin Sans", sans-serif;
+  font-style: italic;
+  align-self: center;
+
+  position: relative;
 }
 
-.single-post-update {
-  width: 30%;
+.single-post-update::before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 1rem;
+  background: var(--text-color);
+  left: -1rem;
 }
 
 .single-post-edit-btn {
-  margin-left: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  gap: 2rem;
+  /* margin-left: 4rem; */
   font-size: 2.15rem;
+  /* width: 10%; */
+  justify-content: end;
+}
+
+.single-post-edit-btn > button {
+  background: transparent;
+  border-color: var(--text-color);
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
   cursor: pointer;
-  width: 10%;
+}
+
+.single-post-edit-btn > button:last-child {
+  border-color: rgb(201, 9, 9);
+  color: rgb(201, 9, 9);
 }
 
 .post-edit-btn {
-  color: #f4f4f4;
+  font-size: 1rem;
+  color: var(--text-color);
 }
 
 .post-delete-btn {
-  padding-left: 1rem;
+  font-size: 1rem;
   color: rgb(201, 9, 9);
 }
 
 .single-post-content {
-  line-height: 2.5rem;
-  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
 }
 
 .single-post-content::first-letter {
   margin-left: 2rem;
   font-size: 3.5rem;
+  font-family: "Fraunces", sans-serif;
   font-weight: 700;
-  color: #dacc87;
 }
 
 .single-post-content-update {
   background-color: transparent;
-  line-height: 2.5rem;
-  font-size: 1.25rem;
+  line-height: 1.65rem;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
 
-  color: #f4f4f4;
+  color: var(--text-color);
   margin: 2rem 0;
   padding: 1rem;
   border: none;
@@ -115,26 +178,26 @@
 }
 
 .single-post-content-update::-webkit-scrollbar-thumb {
-  background: #a4a4a4;
+  background: var(--color-hover);
   border-radius: 10px;
 }
 
 .single-post-content-update:focus {
   transition: 0.5s ease-in;
-  border-left: 1px solid #dacc87;
+  border-left: 0.5px solid var(--color-hover);
 }
 
 .single-post-update-btn {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
   font-size: 1rem;
-  font-weight: 700;
+  /* font-weight: 700; */
   color: #1f1f1f;
-  background-color: #dacc87;
+  background: transparent;
   margin: 1rem 0;
   padding: 1rem;
-  width: 15%;
-  border: none;
-  border-radius: 10px;
+  width: 25%;
+  /* border: none; */
+  /* border-radius: 10px; */
   cursor: pointer;
   align-self: flex-end;
 }

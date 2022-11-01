@@ -3,7 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { Request } from "../../Request";
 import noImage from "../../Assets/no-image.jpg";
+import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
+
 import "./SinglePost.css";
+import Sidebar from "../Sidebar/Sidebar";
 
 const SinglePost = ({ user }) => {
   const id = useLocation().pathname.split("/")[2];
@@ -54,8 +57,6 @@ const SinglePost = ({ user }) => {
   return (
     <div className="single-post">
       <div className="single-post-wapper">
-        <img src={post.image ? post.image : noImage} alt="blog-img" />
-
         {updateMode ? (
           <input
             type="text"
@@ -66,38 +67,51 @@ const SinglePost = ({ user }) => {
           />
         ) : (
           <>
-            <h1 className="single-post-title">{title}</h1>
-
             <div className="single-post-info">
-              <h4 className="single-post-author">
-                Auhtor:
-                <Link
-                  to={`/?author=${post.author}`}
-                  className="link single-post-author-name"
-                >
-                  {post.author}
-                </Link>
-              </h4>
-              <div className="single-post-divider" />
-              <p className="single-post-update">
-                ({new Date(post.updatedAt).toDateString()})
-              </p>
+              <div className="post-author-date-wrapper">
+                <img
+                  src={user.profilePicture ? user.profilePicture : noProfilePic}
+                  alt=""
+                />
+                <h4 className="single-post-author">
+                  <Link
+                    to={`/?author=${post.author}`}
+                    className="link single-post-author-name"
+                  >
+                    {post.author}
+                  </Link>
+                </h4>
+
+                <span className="single-post-update">
+                  {new Date(post.updatedAt)
+                    .toDateString()
+                    .split(" ")
+                    .splice(1, 2)
+                    .join(" ")}
+                </span>
+              </div>
 
               {post.author === user?.username && (
                 <div className="single-post-edit-btn">
-                  <FaRegEdit
-                    className="post-edit-btn"
-                    onClick={() => setUpdateMode(true)}
-                  />
-                  <FaRegTrashAlt
-                    className="post-delete-btn"
-                    onClick={handleDelete}
-                  />
+                  <button onClick={() => setUpdateMode(true)}>
+                    <FaRegEdit className="post-edit-btn" /> Update Post
+                  </button>
+
+                  <button onClick={handleDelete}>
+                    <FaRegTrashAlt className="post-delete-btn" /> Delete Post
+                  </button>
                 </div>
               )}
             </div>
+            <h1 className="single-post-title">{title}</h1>
+
+            <h3 className="single-post-context-line">
+              {content.substring(0, content.indexOf("\n")).trim()}
+            </h3>
           </>
         )}
+
+        <img src={post.image ? post.image : noImage} alt="blog-img" />
 
         {updateMode ? (
           <textarea
@@ -106,7 +120,9 @@ const SinglePost = ({ user }) => {
             onChange={(e) => setContent(e.target.value)}
           />
         ) : (
-          <p className="single-post-content">{content}</p>
+          <p className="single-post-content">
+            {content.substring(content.indexOf("\n"), content.length)}
+          </p>
         )}
 
         {updateMode && (
@@ -115,6 +131,8 @@ const SinglePost = ({ user }) => {
           </button>
         )}
       </div>
+
+      <Sidebar postId={id} />
     </div>
   );
 };
