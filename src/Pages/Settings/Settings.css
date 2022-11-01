@@ -1,115 +1,241 @@
 .settings {
-  display: flex;
+  background: var(--overlay-color);
+  margin: auto;
+  margin-top: 5rem;
+  width: 80%;
+  display: grid;
 }
 
 .settings-wrapper {
-  flex: 9;
-  padding: 2rem;
+  /* flex: 9; */
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
 }
 
 .settings-top-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "Josefin Sans", sans-serif;
+  display: grid;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+
+  /* border: 1px solid red; */
 }
 
 .settings-update-acc {
-  font-size: 3rem;
-  font-weight: 600;
-  color: #dacc87;
+  font-size: 2rem;
+  /* font-weight: 600; */
+  color: var(--text-color);
+  margin: 0;
+  position: relative;
 }
 
-.settings-delete-acc {
-  padding: 0.75rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  background-color: rgb(229, 31, 31);
-  color: #f4f4f4;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.settings-delete-acc:hover {
-  background-color: rgb(176, 23, 23);
+.settings-update-acc::before {
+  position: absolute;
+  content: "";
+  background: var(--text-color);
+  height: 1px;
+  width: 12rem;
+  bottom: -0.5rem;
+  /* left: 0; */
 }
 
 .settings-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  gap: 1rem;
 }
 
 .settings-form > h4 {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 2rem;
-  color: #f4f4f4;
-  margin-bottom: 0;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  position: relative;
+}
+
+.settings-form > h4::before {
+  position: absolute;
+  content: "";
+  background: var(--text-color);
+  height: 1px;
+  width: 20rem;
+  bottom: -0.5rem;
+}
+
+.settings-user-profile-wrapper {
+  display: grid;
+  grid-template-columns: 40% auto;
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .settings-profile {
-  display: flex;
-  align-items: flex-start;
-  margin: 2rem 0;
+  grid-auto-rows: min-content;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 30% auto;
+  gap: 2rem;
+  position: relative;
+  /* margin: 2rem 0; */
+}
+
+.settings-profile::after {
+  position: absolute;
+  content: "";
+  background: var(--text-color);
+  height: 8rem;
+  width: 1px;
+  right: 0;
+  top: 0;
 }
 
 .settings-profile > img {
-  width: 20%;
-  height: 20%;
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border-radius: 50%; */
 }
 
-.settings-profile-icon {
-  font-size: 3rem;
-  color: #dacc87;
-  margin-left: 3rem;
+.upload-button-wrapper {
+  height: fit-content;
+  width: fit-content;
+  align-self: end;
+}
+
+.settings-profile-pic {
+  justify-self: center;
+  align-self: center;
+  border: 1px solid var(--text-color);
+  font-family: "Fraunces", sans-serif;
+  display: grid;
+  grid-template-columns: 10% auto;
+  gap: 1rem;
+  height: fit-content;
+  width: 12rem;
+  padding: 1rem;
   cursor: pointer;
 }
 
-.settings-profile-icon:hover {
-  transition: 70ms ease-in;
-  border: 1px solid #999;
-  border-radius: 50%;
-  padding: 0.15rem;
+.settings-profile-pic > span {
+  margin: 0;
+  width: fit-content;
+}
+
+.settings-profile-icon {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  /* margin-left: 3rem; */
+  width: fit-content;
+}
+
+.settings-profile-pic:hover {
+  background: var(--text-color);
+  border-color: var(--overlay-color);
+  color: var(--overlay-color);
+}
+
+.settings-profile-pic:hover > .settings-profile-icon {
+  color: var(--overlay-color);
+}
+
+.settings-user-info-wrapper {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  gap: 2.5rem;
+  padding: 2rem 1rem;
 }
 
 .settings-username,
 .settings-email,
 .settings-password {
+  display: none;
   font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
   color: #f4f4f4;
   margin: 1rem 0 0 0;
 }
 
-.settings-form > input {
+.settings-user-info-wrapper > input {
   background-color: transparent;
-  color: #dacc87;
-  padding: 1rem;
+  color: var(--text-color);
+  /* padding: 1rem; */
   border: none;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #999;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--text-color);
   outline: none;
-  margin: 0 0 2rem 0;
 }
 
-.settings-form > input:focus {
-  transition: 0.5s ease-in;
-  border-bottom: 1px solid #dacc87;
+.settings-user-info-wrapper > input:focus {
+  border-bottom: 1px solid var(--color-hover);
 }
 
 .settings-update-btn {
-  width: 25%;
+  width: 20%;
   padding: 1rem;
-  border: none;
-  border-radius: 10px;
-  background-color: #dacc87;
-  color: #1e1e1e;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  align-self: end;
+  border-color: var(--text-color);
+  /* border-radius: 10px; */
+  background: transparent;
+  color: var(--text-color);
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  justify-self: center;
   cursor: pointer;
+}
+
+.settings-update-btn:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
+}
+
+.settings-delete-acc-section > h4 {
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  color: rgb(229, 31, 31);
+  position: relative;
+}
+
+.settings-delete-acc-section > h4::before {
+  position: absolute;
+  content: "";
+  background: rgb(229, 31, 31);
+  height: 0.5px;
+  width: 12rem;
+  bottom: -0.5rem;
+}
+
+.settigns-caution-zone-wrapper {
+  display: flex;
+  gap: 5rem;
+}
+
+.settings-caution-zone-btn {
+  padding: 1rem 0;
+  background: transparent;
+  border-color: #20303c;
+  width: 13%;
+
+  font-family: var(--title-font);
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.settings-logout:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
+}
+
+.settings-delete-acc {
+  border-color: rgb(229, 31, 31);
+  color: rgb(229, 31, 31);
+}
+
+.settings-delete-acc:hover {
+  background: rgb(229, 31, 31);
+  color: var(--overlay-color);
 }
 
 @media screen and (max-width: 650px) {

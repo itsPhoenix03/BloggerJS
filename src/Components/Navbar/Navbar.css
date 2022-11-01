@@ -88,8 +88,7 @@
 }
 
 .navbar-login,
-.navbar-register,
-.navbar-logout {
+.navbar-register {
   margin: 0 0.75rem;
   border: none;
   background-color: #dacc87;
