@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { FaRegFileImage } from "react-icons/fa";
 import noImage from "../../Assets/no-image.jpg";
 import "./Compose.css";
 import { Request } from "../../Request";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../firebase";
+import Footer from "../../Components/Footer/Footer";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 
 const Compose = ({ user }) => {
   const [file, setFile] = useState(null);
@@ -65,7 +67,6 @@ const Compose = ({ user }) => {
     e.preventDefault();
 
     try {
-      console.log(blogData);
       const res = await Request.post("/posts", blogData);
       window.location.replace(`#/post/${res.data._id}`);
     } catch (error) {
@@ -74,58 +75,76 @@ const Compose = ({ user }) => {
   };
 
   return (
-    <div className="compose">
-      <img
-        src={file ? URL.createObjectURL(file) : noImage}
-        alt=""
-        className="compose-post-img"
-      />
-
-      <form action="" onSubmit={handleSubmit} className="compose-form">
-        <div className="compose-form-group">
-          <label htmlFor="compose-add-img">
-            <FaRegFileImage className="compose-icon" />
-          </label>
-
-          <input
-            type="file"
-            id="compose-add-img"
-            style={{ display: "none" }}
-            onChange={(e) => uploadImage(e.target.files[0])}
+    <>
+      <div className="compose-page-wrapper">
+        <div className="compose">
+          <img
+            src={file ? URL.createObjectURL(file) : noImage}
+            alt=""
+            className="compose-post-img"
           />
 
-          <input
-            type="text"
-            className="compose-input compose-title"
-            placeholder="Title..."
-            autoFocus={true}
-            name="title"
-            onChange={(e) =>
-              setBlogData((p) => ({ ...p, [e.target.name]: e.target.value }))
-            }
-          />
-        </div>
+          <form action="" onSubmit={handleSubmit} className="compose-form">
+            <div className="compose-form-group compose-img-button-group">
+              <label className="compose-icon-wrapper" htmlFor="compose-add-img">
+                <FaRegFileImage className="compose-icon" />
+                <span>Upload Blog Image</span>
+              </label>
 
-        <div className="compose-form-group">
-          <textarea
-            className="compose-input compose-post-content"
-            placeholder="Enter Your Post Content..."
-            name="description"
-            onChange={(e) =>
-              setBlogData((p) => ({ ...p, [e.target.name]: e.target.value }))
-            }
-          ></textarea>
-        </div>
+              <input
+                type="file"
+                id="compose-add-img"
+                style={{ display: "none" }}
+                onChange={(e) => uploadImage(e.target.files[0])}
+              />
+              <button
+                type="submit"
+                disabled={disabled}
+                className="compose-publish-btn"
+              >
+                Publish
+              </button>
+            </div>
 
-        <button
-          type="submit"
-          disabled={disabled}
-          className="compose-publish-btn"
-        >
-          Publish
-        </button>
-      </form>
-    </div>
+            <input
+              type="text"
+              className="compose-input compose-title"
+              placeholder="Title..."
+              autoFocus={true}
+              name="title"
+              onChange={(e) =>
+                setBlogData((p) => ({
+                  ...p,
+                  [e.target.name]: e.target.value,
+                }))
+              }
+            />
+
+            <div className="compose-form-group, compose-form-content">
+              <textarea
+                className="compose-input compose-post-content"
+                placeholder="Enter Your Post Content..."
+                name="description"
+                rows={40}
+                onChange={(e) =>
+                  setBlogData((p) => ({
+                    ...p,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        {useMemo(
+          () => (
+            <Sidebar />
+          ),
+          []
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 

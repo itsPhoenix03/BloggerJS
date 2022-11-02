@@ -3,14 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Request } from "../../Request";
 import "./Sidebar.css";
 
-const Sidebar = ({ postId }) => {
+const Sidebar = ({ postId = null }) => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
   const topStories = [];
 
   for (let i = 0; i < 3; ) {
-    let num = Math.floor(Math.random() * 12);
-    if (num > 1 && !topStories.includes(num)) {
+    let num = Math.floor(Math.random() * 11);
+    if (!topStories.includes(num)) {
       topStories.push(num);
       ++i;
     }
@@ -24,7 +24,6 @@ const Sidebar = ({ postId }) => {
 
     fetchPosts();
   }, [search, postId]);
-  console.log(topStories);
 
   return (
     <div className="sidebar">

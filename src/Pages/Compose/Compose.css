@@ -1,39 +1,105 @@
+.compose-page-wrapper {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 65% 23%;
+  gap: 3%;
+}
+
 .compose {
-  padding: 5rem;
+  margin-top: 8.5rem;
+  padding: 3rem;
+  background: var(--overlay-color);
 }
 
 .compose-post-img {
   width: 100%;
-  height: 25rem;
+  height: fit-content;
   object-fit: cover;
-  border-radius: 10px;
   margin-bottom: 2rem;
 }
 
-.compsoe-form {
-  position: relative;
+.compose-form {
+  height: 65%;
+  display: grid;
+  grid-template-rows: 5% 5% auto;
+  gap: 3rem;
 }
 
-.compose-form-group {
-  /* margin-left: 50rem; */
-  display: flex;
-  align-items: center;
+.compose-img-button-group {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 1rem;
+  justify-items: center;
 }
 
-.compose-icon {
-  color: #dacc87;
-  font-size: 3rem;
+.compose-icon-wrapper {
+  width: 60%;
+  border: 2px solid var(--text-color);
+  padding: 1rem 2rem;
+  font-family: var(--title-font);
+  font-size: 1rem;
+  align-self: center;
+
+  display: grid;
+  grid-template-columns: 10% auto;
+  gap: 1rem;
+
   cursor: pointer;
 }
 
-.compose-input {
-  font-size: 1.75rem;
-  border: none;
-  background-color: #3c3c3c;
-  color: #fff;
+.compose-icon-wrapper > span {
+  /* align-self: center; */
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  text-align: center;
+  font-weight: 600;
+}
 
-  padding: 1rem;
-  width: 70vw;
+.compose-icon {
+  align-content: center;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.compose-icon-wrapper:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
+}
+
+.compose-icon-wrapper:hover > .compose-icon {
+  color: var(--overlay-color);
+}
+
+.compose-publish-btn {
+  /* position: absolute;
+  top: 37rem;
+  right: 10rem; */
+  justify-content: end;
+  width: 70%;
+  border-color: var(--text-color);
+  padding: 1rem 2rem;
+  background: transparent;
+  font-family: "Fraunces", "Josefin Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.compose-publish-btn:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
+}
+
+.compose-input {
+  /* font-size: 1.75rem; */
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+
+  /* padding: 1rem; */
+  /* width: 70vw; */
 }
 
 .compose-input:focus {
@@ -42,41 +108,42 @@
 
 .compose-title {
   font-size: 2rem;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: var(--title-font);
   font-weight: 600;
 }
 
-.compose-title:focus {
-  border-bottom: 1px solid #dacc87;
+.compose-form-content {
+  position: relative;
+}
+
+.compose-form-content::before {
+  position: absolute;
+  content: "";
+  background: var(--text-color);
+  height: 1px;
+  width: 15rem;
+  top: -1.8rem;
+  left: 0;
 }
 
 .compose-post-content {
   resize: none;
-  margin-top: 2rem;
   width: 100%;
-  height: 80vh;
+  height: 100%;
+  font-family: var(--content-font);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 .compose-post-content::-webkit-scrollbar {
-  display: none;
+  background: var(--overlay-color);
+  width: 0.1rem;
 }
 
-.compose-post-content:focus {
-  border-top: 1px solid #dacc87;
-}
-
-.compose-publish-btn {
-  position: absolute;
-  top: 37rem;
-  right: 10rem;
-  border: none;
-  padding: 0.75rem;
-  background-color: #dacc87;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
-  font-size: 1.05rem;
-  border-radius: 5px;
-  cursor: pointer;
+.compose-post-content::-webkit-scrollbar-thumb {
+  background: var(--text-color);
 }
 
 @media screen and (max-width: 650px) {
