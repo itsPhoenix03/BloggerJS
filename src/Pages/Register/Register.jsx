@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Register.css";
 import { Request } from "../../Request";
+import "./Register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -28,7 +28,7 @@ const Register = () => {
 
   return (
     <div className="register">
-      <h2>Register</h2>
+      <h2>Sign Up</h2>
       <form action="" onSubmit={handleSubmit} className="register-form">
         <label htmlFor="registre-username">Username</label>
         <input
@@ -55,7 +55,7 @@ const Register = () => {
         />
 
         <button type="submit" className="register-btn">
-          Register
+          Sign Up
         </button>
         {error && (
           <p style={{ color: "red", marginTop: "0.15rem" }}>

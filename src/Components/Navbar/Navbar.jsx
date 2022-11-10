@@ -58,28 +58,34 @@ const Navbar = ({ user }) => {
       </div>
 
       <div className="navbar-right">
-        {!user ? (
+        {!(currPage === "/register" || currPage === "/login") && (
           <>
-            <button className="navbar-login">
-              <Link to="/login" className="link">
-                Login
-              </Link>
-            </button>
-            <button className="navbar-register">
-              <Link to="/register" className="link">
-                Sign Up
-              </Link>
-            </button>
-          </>
-        ) : (
-          <>
-            <div className="navbar-user-profile">
-              <p>{user.username}</p>
-              <img
-                src={user.profilePicture ? user.profilePicture : noProfilePic}
-                alt="user-img"
-              />
-            </div>
+            {!user ? (
+              <>
+                <button className="navbar-login">
+                  <Link to="/login" className="link">
+                    Login
+                  </Link>
+                </button>
+                <button className="navbar-register">
+                  <Link to="/register" className="link">
+                    Sign Up
+                  </Link>
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="navbar-user-profile">
+                  <p>{user.username}</p>
+                  <img
+                    src={
+                      user.profilePicture ? user.profilePicture : noProfilePic
+                    }
+                    alt="user-img"
+                  />
+                </div>
+              </>
+            )}
           </>
         )}
 
