@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
@@ -8,6 +8,7 @@ import "./Navbar.css";
 
 const Navbar = ({ user }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const currPage = useLocation().pathname;
 
   return (
     <div className="navbar">
@@ -17,22 +18,38 @@ const Navbar = ({ user }) => {
 
       <div className="navbar-center">
         <ul className="navbar-sections">
-          <li className="navbar-sections-item">
+          <li
+            className={`navbar-sections-item ${
+              currPage === "/" ? "navbar-section-item-active" : ""
+            }`}
+          >
             <Link to="/" className="link">
               Home
             </Link>
           </li>
-          <li className="navbar-sections-item">
+          <li
+            className={`navbar-sections-item ${
+              currPage === "/compose" ? "navbar-section-item-active" : ""
+            }`}
+          >
             <Link to="/compose" className="link">
               Compose
             </Link>
           </li>
-          <li className="navbar-sections-item">
+          <li
+            className={`navbar-sections-item ${
+              currPage === "/blogs" ? "navbar-section-item-active" : ""
+            }`}
+          >
             <Link to="/blogs" className="link">
               Blogs
             </Link>
           </li>
-          <li className="navbar-sections-item">
+          <li
+            className={`navbar-sections-item ${
+              currPage === "/settings" ? "navbar-section-item-active" : ""
+            }`}
+          >
             <Link to="/settings" className="link">
               Settings
             </Link>
@@ -50,7 +67,7 @@ const Navbar = ({ user }) => {
             </button>
             <button className="navbar-register">
               <Link to="/register" className="link">
-                Register
+                Sign Up
               </Link>
             </button>
           </>
@@ -131,7 +148,7 @@ const Navbar = ({ user }) => {
                         className="link"
                         onClick={() => setToggleMenu(false)}
                       >
-                        Register
+                        Sign Up
                       </Link>
                     </li>
                   </>

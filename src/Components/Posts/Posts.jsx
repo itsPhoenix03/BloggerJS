@@ -16,36 +16,36 @@ const Posts = ({ posts }) => {
             <h2>Top Stories</h2>
           </div>
 
-          <Link to={`/post/${posts[4]?._id}`} className="link">
+          <Link to={`/post/${posts[2]?._id}`} className="link">
             <div className="top-story">
               <div className="top-img-container">
-                <img src={posts[4]?.image} alt="" />
+                <img src={posts[2]?.image} alt="" />
               </div>
 
               <div className="content">
-                <h3>{posts[4]?.title}</h3>
+                <h3>{posts[2]?.title}</h3>
 
                 <p>
-                  {posts[4]?.description
-                    .substring(0, posts[4]?.description.indexOf("\n"))
+                  {posts[2]?.description
+                    .substring(0, posts[2]?.description.indexOf("\n"))
                     .trim()}
                 </p>
               </div>
             </div>
           </Link>
 
-          <Link to={`/post/${posts[3]?._id}`} className="link">
+          <Link to={`/post/${posts[1]?._id}`} className="link">
             <div className="top-story">
               <div className="top-img-container">
-                <img src={posts[3]?.image} alt="" />
+                <img src={posts[1]?.image} alt="" />
               </div>
 
               <div className="content">
-                <h3>{posts[3]?.title}</h3>
+                <h3>{posts[1]?.title}</h3>
 
                 <p>
-                  {posts[3]?.description
-                    .substring(0, posts[3]?.description.indexOf("\n"))
+                  {posts[1]?.description
+                    .substring(0, posts[1]?.description.indexOf("\n"))
                     .trim()}
                 </p>
               </div>
@@ -53,24 +53,24 @@ const Posts = ({ posts }) => {
           </Link>
         </div>
 
-        <Link to={`/post/${posts[2]?._id}`} className="link">
+        <Link to={`/post/${posts[0]?._id}`} className="link">
           <div className="main-story-container">
             <div className="img-contianer">
-              <img src={posts[2]?.image} alt="" />
+              <img src={posts[0]?.image} alt="" />
             </div>
 
             <div className="title">
               <span>
-                {new Date(posts[2]?.updatedAt)
+                {new Date(posts[0]?.updatedAt)
                   .toDateString()
                   .split(" ")
                   .splice(1, 2)
                   .join(" ")}
               </span>
-              <h2>{posts[2]?.title}</h2>
+              <h2>{posts[0]?.title}</h2>
               <p>
-                {posts[2]?.description
-                  .substring(0, posts[2]?.description.indexOf("\n"))
+                {posts[0]?.description
+                  .substring(0, posts[0]?.description.indexOf("\n"))
                   .trim()}
               </p>
             </div>
@@ -81,6 +81,34 @@ const Posts = ({ posts }) => {
           <div className="heading opinion-stories-heading">
             <h2>Opinion</h2>
           </div>
+
+          <Link to={`/post/${posts[3]?._id}`} className="link">
+            <div className="opinion-story">
+              <div className="content opinion-stories-content">
+                <h3>{posts[3]?.title}</h3>
+
+                <p>
+                  {posts[3]?.description
+                    .substring(0, posts[3]?.description.indexOf("\n"))
+                    .trim()}
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link to={`/post/${posts[4]?._id}`} className="link">
+            <div className="opinion-story">
+              <div className="content opinion-stories-content">
+                <h3>{posts[4]?.title}</h3>
+
+                <p>
+                  {posts[4]?.description
+                    .substring(0, posts[4]?.description.indexOf("\n"))
+                    .trim()}
+                </p>
+              </div>
+            </div>
+          </Link>
 
           <Link to={`/post/${posts[5]?._id}`} className="link">
             <div className="opinion-story">
@@ -109,34 +137,6 @@ const Posts = ({ posts }) => {
               </div>
             </div>
           </Link>
-
-          <Link to={`/post/${posts[7]?._id}`} className="link">
-            <div className="opinion-story">
-              <div className="content opinion-stories-content">
-                <h3>{posts[7]?.title}</h3>
-
-                <p>
-                  {posts[7]?.description
-                    .substring(0, posts[7]?.description.indexOf("\n"))
-                    .trim()}
-                </p>
-              </div>
-            </div>
-          </Link>
-
-          <Link to={`/post/${posts[9]?._id}`} className="link">
-            <div className="opinion-story">
-              <div className="content opinion-stories-content">
-                <h3>{posts[9]?.title}</h3>
-
-                <p>
-                  {posts[9]?.description
-                    .substring(0, posts[9]?.description.indexOf("\n"))
-                    .trim()}
-                </p>
-              </div>
-            </div>
-          </Link>
         </div>
       </div>
 
@@ -152,9 +152,9 @@ const Posts = ({ posts }) => {
           {posts
             .filter(
               (post) =>
-                posts.indexOf(post) >= 8 &&
-                posts.indexOf(post) !== 9 &&
-                posts.indexOf(post) <= 12
+                posts.indexOf(post) >= 6 &&
+                posts.indexOf(post) !== 7 &&
+                posts.indexOf(post) <= 10
             )
             .map((post) => (
               <Post post={post} key={post._id} index={posts.indexOf(post)} />

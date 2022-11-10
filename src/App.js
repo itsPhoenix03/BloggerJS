@@ -9,6 +9,7 @@ import SinglePostPage from "./Pages/SinglePost/SinglePostPage.jsx";
 import Home from "./Pages/Home/Home";
 import { Context } from "./Context/Context";
 import { useContext } from "react";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
   const { user } = useContext(Context);
@@ -19,6 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/post/:id" element={<SinglePostPage user={user} />} />
         <Route
           path="/compose"

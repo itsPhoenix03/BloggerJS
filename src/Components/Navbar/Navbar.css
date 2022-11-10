@@ -3,7 +3,7 @@
   height: 4.5rem;
   position: sticky;
   top: 0;
-  border-bottom: 2px solid #dacc87;
+  border-bottom: 1px solid var(--color-hover);
 
   display: flex;
   justify-content: center;
@@ -49,10 +49,17 @@
   font-size: 1.09rem;
   font-weight: 700;
   cursor: pointer;
+  transition: margin 250ms ease-in-out;
 }
 
 .navbar-sections-item:hover {
-  border-bottom: 1px solid #dacc87;
+  color: var(--color-hover);
+}
+
+.navbar-section-item-active {
+  transition: all 250ms ease-in-out;
+  margin-top: 1rem;
+  color: var(--color-hover);
 }
 
 .navbar-right {
@@ -89,14 +96,20 @@
 
 .navbar-login,
 .navbar-register {
-  margin: 0 0.75rem;
-  border: none;
-  background-color: #dacc87;
-  color: #1e1e1e;
-  border-radius: 5px;
+  margin: 0 1.25rem;
+  background: transparent;
+  width: 7rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--title-font);
+  font-size: 1rem;
+  border-color: var(--text-color);
   cursor: pointer;
-  padding: 0.5rem;
-  font-weight: 700;
+}
+
+.navbar-login:hover,
+.navbar-register:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
 }
 
 .navbar-small-screen {

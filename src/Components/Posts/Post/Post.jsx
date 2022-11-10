@@ -11,7 +11,7 @@ const Post = ({ post, index }) => {
           src={post.image ? post.image : noImage}
           alt="blog-img"
           style={{
-            height: `${!(index % 2) && index !== 8 ? "30rem" : "25rem"}`,
+            height: `${!(index % 2) && index !== 6 ? "30rem" : "25rem"}`,
           }}
         />
 

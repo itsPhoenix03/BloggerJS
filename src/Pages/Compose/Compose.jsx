@@ -7,10 +7,14 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../firebase";
 import Footer from "../../Components/Footer/Footer";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import noProfilePic from "../../Assets/no-user-profile-picture.jpg";
 
 const Compose = ({ user }) => {
   const [file, setFile] = useState(null);
-  const [blogData, setBlogData] = useState({ author: user.username });
+  const [blogData, setBlogData] = useState({
+    author: user.username,
+    authorPic: user.profilePicture,
+  });
   const [disabled, setDisabled] = useState(false);
 
   const uploadImage = async (file) => {
@@ -78,6 +82,19 @@ const Compose = ({ user }) => {
     <>
       <div className="compose-page-wrapper">
         <div className="compose">
+          <div className="compose-post-info">
+            <div className="post-author-date-wrapper">
+              <img
+                src={user.profilePicture ? user.profilePicture : noProfilePic}
+                alt=""
+              />
+              <h4 className="compose-post-author">{user.username}</h4>
+
+              <span className="compose-post-update">
+                {new Date().toDateString().split(" ").splice(1, 2).join(" ")}
+              </span>
+            </div>
+          </div>
           <img
             src={file ? URL.createObjectURL(file) : noImage}
             alt=""

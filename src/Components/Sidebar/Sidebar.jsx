@@ -9,7 +9,7 @@ const Sidebar = ({ postId = null }) => {
   const topStories = [];
 
   for (let i = 0; i < 3; ) {
-    let num = Math.floor(Math.random() * 11);
+    let num = Math.floor(Math.random() * 10);
     if (!topStories.includes(num)) {
       topStories.push(num);
       ++i;

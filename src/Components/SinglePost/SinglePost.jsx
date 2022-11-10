@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { Request } from "../../Request";
 import noImage from "../../Assets/no-image.jpg";
@@ -70,17 +70,10 @@ const SinglePost = ({ user }) => {
             <div className="single-post-info">
               <div className="post-author-date-wrapper">
                 <img
-                  src={user.profilePicture ? user.profilePicture : noProfilePic}
+                  src={post.authorPic ? post.authorPic : noProfilePic}
                   alt=""
                 />
-                <h4 className="single-post-author">
-                  <Link
-                    to={`/?author=${post.author}`}
-                    className="link single-post-author-name"
-                  >
-                    {post.author}
-                  </Link>
-                </h4>
+                <h4 className="single-post-author">{post.author}</h4>
 
                 <span className="single-post-update">
                   {new Date(post.updatedAt)
