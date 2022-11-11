@@ -3,8 +3,8 @@
   width: 68%;
   margin: auto;
   display: grid;
-  grid-template-columns: 40% 23%;
-  gap: 37%;
+  grid-template-columns: 77% 23%;
+  gap: 5%;
 }
 
 .single-post-wapper {

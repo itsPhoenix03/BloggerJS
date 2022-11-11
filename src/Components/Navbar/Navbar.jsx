@@ -58,9 +58,9 @@ const Navbar = ({ user }) => {
       </div>
 
       <div className="navbar-right">
-        {!(currPage === "/register" || currPage === "/login") && (
-          <>
-            {!user ? (
+        <>
+          {!user ? (
+            !(currPage === "/register" || currPage === "/login") && (
               <>
                 <button className="navbar-login">
                   <Link to="/login" className="link">
@@ -73,21 +73,19 @@ const Navbar = ({ user }) => {
                   </Link>
                 </button>
               </>
-            ) : (
-              <>
-                <div className="navbar-user-profile">
-                  <p>{user.username}</p>
-                  <img
-                    src={
-                      user.profilePicture ? user.profilePicture : noProfilePic
-                    }
-                    alt="user-img"
-                  />
-                </div>
-              </>
-            )}
-          </>
-        )}
+            )
+          ) : (
+            <>
+              <div className="navbar-user-profile">
+                <p>{user.username}</p>
+                <img
+                  src={user.profilePicture ? user.profilePicture : noProfilePic}
+                  alt="user-img"
+                />
+              </div>
+            </>
+          )}
+        </>
 
         <div className="navbar-small-screen">
           <GiHamburgerMenu

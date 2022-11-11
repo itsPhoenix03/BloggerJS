@@ -90,7 +90,10 @@ const Settings = () => {
     }
   };
 
-  const handleLogout = () => dispatch({ type: "Logout" });
+  const handleLogout = () => {
+    dispatch({ type: "Logout" });
+    window.location.replace(`#/`);
+  };
 
   const handleDelete = async (e) => {
     e.preventDefault();

@@ -15,7 +15,7 @@
 
 .register > h2 {
   font-family: var(--title-font);
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -29,7 +29,7 @@
 
 .register-form > label {
   font-family: var(--title-font);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 1rem 0;
 }
 
@@ -40,7 +40,7 @@
   outline: none;
   border-bottom: 1px solid var(--text-color);
   font-family: var(--subtitle-font);
-  font-size: 1.15rem;
+  font-size: 1.07rem;
   margin-bottom: 0.5rem;
 }
 
@@ -51,7 +51,7 @@
   width: 50%;
   padding: 0.75rem 1rem;
   font-family: var(--title-font);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-color: var(--text-color);
   cursor: pointer;
 }
@@ -65,7 +65,7 @@
   width: 10rem;
   padding: 0.5rem 2rem;
   font-family: var(--title-font);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-color: var(--text-color);
   cursor: pointer;
 }

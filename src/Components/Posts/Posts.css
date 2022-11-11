@@ -6,13 +6,13 @@
   gap: 8rem;
   justify-content: center;
 
-  width: 100rem;
+  width: 100vw;
 
   /* border: 1px solid red; */
 }
 
 .random-stories-container {
-  width: 95rem;
+  width: 87rem;
   height: 60rem;
 
   padding: 4rem 0 5rem 0;
