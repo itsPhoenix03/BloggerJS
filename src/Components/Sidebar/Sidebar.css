@@ -79,3 +79,13 @@
   font-size: 1rem;
   margin-top: 1rem;
 }
+
+@media screen and (max-width: 650px) {
+  .sidebar {
+    margin-top: 2rem;
+  }
+
+  .sidebar-top-stories-container {
+    padding: 0;
+  }
+}

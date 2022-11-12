@@ -119,9 +119,17 @@ const SinglePost = ({ user }) => {
         )}
 
         {updateMode && (
-          <button onClick={handleEdit} className="single-post-update-btn">
-            Update
-          </button>
+          <div className="updateModeBtns">
+            <button onClick={handleEdit} className="single-post-update-btn">
+              Update
+            </button>
+            <button
+              onClick={() => setUpdateMode(false)}
+              className="single-post-read-mode-btn"
+            >
+              Read Mode
+            </button>
+          </div>
         )}
       </div>
 

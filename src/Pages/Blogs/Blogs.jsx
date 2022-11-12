@@ -199,7 +199,7 @@ const Blogs = () => {
               (post) => ![1, 2, 3, 4, 5, 7, 11].includes(posts.indexOf(post))
             )
             .map((post) => (
-              <div className="single-blog-container" id={post?._id}>
+              <div className="single-blog-container" key={post?._id}>
                 <img src={post?.image} alt="" />
 
                 <Link to={`/post/${post?._id}`} className="link">

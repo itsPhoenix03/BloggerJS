@@ -187,46 +187,84 @@
   border-left: 0.5px solid var(--color-hover);
 }
 
-.single-post-update-btn {
+.updateModeBtns {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 5%;
+}
+
+.single-post-update-btn,
+.single-post-read-mode-btn {
   font-family: "Fraunces", "Josefin Sans", sans-serif;
   font-size: 1rem;
-  /* font-weight: 700; */
-  color: #1f1f1f;
+  color: var(--text-color);
   background: transparent;
+  border-color: var(--text-color);
   margin: 1rem 0;
   padding: 1rem;
-  width: 25%;
-  /* border: none; */
-  /* border-radius: 10px; */
   cursor: pointer;
-  align-self: flex-end;
+}
+
+.single-post-update-btn:hover,
+.single-post-read-mode-btn:hover {
+  background: var(--text-color);
+  color: var(--overlay-color);
 }
 
 @media screen and (max-width: 450px) {
   .single-post {
     width: 100%;
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, auto);
+    gap: 0;
+    padding: 1rem;
   }
 
   .single-post-wapper {
     padding: 1rem;
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  .single-post-info {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, auto);
+    height: auto;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .single-post-author {
+    font-size: 1rem;
+  }
+
+  .single-post-update {
+    font-size: 0.9rem;
+  }
+
+  .single-post-edit-btn {
+    /* margin: 0 0 2rem 70%; */
+    width: 100%;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.5rem;
+    justify-content: initial;
+  }
+
+  .single-post-edit-btn > button {
+    padding: 0.5rem 0rem;
+    width: 100%;
   }
 
   .single-post-title {
     font-size: 2rem;
   }
 
+  .single-post-context-line {
+    font-size: 0.9rem;
+  }
+
   .single-post-title-update {
-    font-size: 2rem;
-  }
-
-  .single-post-info {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .single-post-author {
-    font-size: 1.5rem;
-    width: 100%;
+    font-size: 1rem;
   }
 
   .single-post-divider {
@@ -235,25 +273,28 @@
     margin: 0;
   }
 
-  .single-post-update {
-    width: 100%;
-  }
-
-  .single-post-edit-btn {
-    margin: 0 0 2rem 70%;
-    width: auto;
-  }
-
   .single-post-content {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .single-post-content-update {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .updateModeBtns {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.5rem;
   }
 
   .single-post-update-btn {
-    align-self: initial;
+    width: 100%;
+    background: var(--text-color);
+    color: var(--overlay-color);
+    border: none;
+  }
+
+  .single-post-read-mode-btn {
     width: 100%;
   }
 }

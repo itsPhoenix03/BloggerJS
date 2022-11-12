@@ -85,7 +85,38 @@
 }
 
 @media screen and (max-width: 650px) {
-  .sidebar {
+  .footer-container {
+    /* grid-template-columns: none;
+    grid-template-rows: repeat(2, 50%); */
+    display: block;
+    padding: 0.5rem;
+    height: fit-content;
+  }
+
+  .left-section {
+    display: none;
+  }
+
+  .center-section {
+    width: fit-content;
+    margin: auto;
+  }
+
+  .center-section > img {
+    width: 18rem;
+    height: 18rem;
+    /* margin: -5rem 0 0 0.5rem; */
+    margin: auto;
+    margin-top: -5rem;
+  }
+
+  .center-section > span {
+    top: 10rem;
+    left: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .right-section {
     display: none;
   }
 }

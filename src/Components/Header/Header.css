@@ -14,3 +14,17 @@
   height: 40rem;
   object-fit: cover;
 }
+
+@media screen and (max-width: 650px) {
+  .header {
+    margin: 1.5rem 0;
+  }
+
+  .header-title {
+    margin: auto;
+  }
+
+  .header-title > h4 {
+    font-size: 1rem;
+  }
+}

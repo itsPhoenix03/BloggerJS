@@ -203,12 +203,53 @@
 }
 
 @media screen and (max-width: 650px) {
+  .compose-page-wrapper {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+    gap: 0;
+    padding: 1rem;
+    width: 90%;
+  }
+
   .compose {
     padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .compose-post-info {
+    grid-template-columns: 100%;
+  }
+
+  .compose-post-author {
+    font-size: 1rem;
+  }
+
+  .compose-form {
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .compose-img-button-group {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+  }
+
+  .compose-icon-wrapper {
+    margin: auto;
+  }
+
+  .compose-icon-wrapper > span {
+    font-size: 0.8rem;
   }
 
   .compose-icon {
-    font-size: 1.75rem;
+    font-size: 1.15rem;
+  }
+
+  .compose-publish-btn {
+    border: none;
+    background: var(--text-color);
+    color: var(--overlay-color);
+    width: 100%;
   }
 
   .compose-input {
@@ -220,12 +261,6 @@
   }
 
   .compose-post-content {
-    font-size: 1.15rem;
-  }
-
-  .compose-publish-btn {
-    position: initial;
-    width: 100%;
-    margin: 2rem 0;
+    font-size: 0.85rem;
   }
 }

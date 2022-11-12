@@ -140,7 +140,7 @@ const Compose = ({ user }) => {
             <div className="compose-form-group, compose-form-content">
               <textarea
                 className="compose-input compose-post-content"
-                placeholder="Enter Your Post Content..."
+                placeholder="A short one line can be your Sub Heading of your blog, please be consice and press (Enter) after you write it."
                 name="description"
                 rows={40}
                 onChange={(e) =>

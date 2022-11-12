@@ -119,7 +119,7 @@ const Navbar = ({ user }) => {
                 </li>
                 <li className="navbar-sections-item-sm">
                   <Link
-                    to="/"
+                    to="/blogs"
                     className="link"
                     onClick={() => setToggleMenu(false)}
                   >

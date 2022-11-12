@@ -239,18 +239,20 @@
 }
 
 @media screen and (max-width: 650px) {
+  .settings {
+    width: 90%;
+  }
+
   .settings-wrapper {
     padding: 1rem;
   }
 
-  .settings-top-section {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  .settings-update-acc {
+    font-size: 2rem;
   }
 
-  .settings-update-acc {
-    font-size: 2.5rem;
+  .settings-update-acc::before {
+    width: 8rem;
   }
 
   .settings-delete-acc {
@@ -258,28 +260,74 @@
   }
 
   .settings-form > h4 {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
 
-  .settings-profile > img {
-    width: 45%;
-    height: 45%;
+  .settings-form > h4::before {
+    width: 15rem;
+  }
+
+  .settings-user-profile-wrapper {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+    padding: 0;
+  }
+
+  .settings-profile {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+  }
+
+  .settings-profile::after {
+    height: 1.5px;
+    width: 10rem;
+    top: auto;
+    bottom: -2rem;
+    left: 0;
+    right: auto;
+  }
+
+  .settings-profile-pic {
+    /* width: 100%; */
+    margin: auto;
+  }
+
+  .upload-button-wrapper {
+    width: 100%;
+  }
+
+  .settings-profile-pic > span {
+    font-size: 1rem;
+    text-align: center;
   }
 
   .settings-profile-icon {
-    font-size: 1.75rem;
+    font-size: 1.15rem;
   }
 
-  .settings-form > label {
-    font-size: 1.5rem;
-  }
-
-  .settings-form > input {
-    font-size: 1rem;
+  .settings-user-info-wrapper {
+    padding: 3rem 0rem;
   }
 
   .settings-update-btn {
     width: 100%;
-    font-size: 1rem;
+    background: var(--text-color);
+    color: var(--overlay-color);
+    border: none;
+  }
+
+  .settigns-caution-zone-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .settings-caution-zone-btn {
+    width: 100%;
+  }
+
+  .settings-delete-acc {
+    border: none;
+    background: rgb(229, 31, 31);
+    color: var(--overlay-color);
   }
 }
