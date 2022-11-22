@@ -218,11 +218,13 @@ const Settings = () => {
             </div>
           </div>
 
-          {success && (
-            <p style={{ color: "aquamarine" }}>
+          <div
+            className={`success-box ${success ? "success-box-visible" : ""}`}
+          >
+            <p>
               Updated Your Information (Please, Login Again to see Changes!)
             </p>
-          )}
+          </div>
         </div>
       </div>
       <Footer />

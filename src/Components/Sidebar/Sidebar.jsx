@@ -5,6 +5,7 @@ import "./Sidebar.css";
 
 const Sidebar = ({ postId = null }) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { search } = useLocation();
   const topStories = [];
 
@@ -20,6 +21,7 @@ const Sidebar = ({ postId = null }) => {
     const fetchPosts = async () => {
       const res = await Request.get(`/posts/${search}`);
       setPosts(res.data.filter((post) => post._id !== postId));
+      setIsLoading(false);
     };
 
     fetchPosts();
@@ -32,68 +34,93 @@ const Sidebar = ({ postId = null }) => {
           <h2>Top Stories</h2>
         </div>
 
-        <Link
-          to={`/post/${posts[topStories[0]]?._id}`}
-          className="link sidebar-links"
-        >
-          <div className="sidebar-top-story">
-            <div className="sidebar-top-img-container">
-              <img src={posts[topStories[0]]?.image} alt="" />
+        {isLoading ? (
+          Array(3).fill(
+            <div className="skeleton-sidebar-top-story" key={Math.random()}>
+              <div className="skeleton-sidebar-top-img-container" />
+
+              <div className="skeleton-sidebar-content">
+                <div />
+
+                <div />
+              </div>
             </div>
+          )
+        ) : (
+          <>
+            <Link
+              to={`/post/${posts[topStories[0]]?._id}`}
+              className="link sidebar-links"
+            >
+              <div className="sidebar-top-story">
+                <div className="sidebar-top-img-container">
+                  <img src={posts[topStories[0]]?.image} alt="" />
+                </div>
 
-            <div className="sidebar-content">
-              <h3>{posts[topStories[0]]?.title}</h3>
+                <div className="sidebar-content">
+                  <h3>{posts[topStories[0]]?.title}</h3>
 
-              <p>
-                {posts[topStories[0]]?.description
-                  .substring(0, posts[topStories[0]]?.description.indexOf("\n"))
-                  .trim()}
-              </p>
-            </div>
-          </div>
-        </Link>
+                  <p>
+                    {posts[topStories[0]]?.description
+                      .substring(
+                        0,
+                        posts[topStories[0]]?.description.indexOf("\n")
+                      )
+                      .trim()}
+                  </p>
+                </div>
+              </div>
+            </Link>
 
-        <Link
-          to={`/post/${posts[topStories[1]]?._id}`}
-          className="link sidebar-links"
-        >
-          <div className="sidebar-top-story">
-            <div className="sidebar-top-img-container">
-              <img src={posts[topStories[1]]?.image} alt="" />
-            </div>
+            <Link
+              to={`/post/${posts[topStories[1]]?._id}`}
+              className="link sidebar-links"
+            >
+              <div className="sidebar-top-story">
+                <div className="sidebar-top-img-container">
+                  <img src={posts[topStories[1]]?.image} alt="" />
+                </div>
 
-            <div className="sidebar-content">
-              <h3>{posts[topStories[1]]?.title}</h3>
+                <div className="sidebar-content">
+                  <h3>{posts[topStories[1]]?.title}</h3>
 
-              <p>
-                {posts[topStories[1]]?.description
-                  .substring(0, posts[topStories[1]]?.description.indexOf("\n"))
-                  .trim()}
-              </p>
-            </div>
-          </div>
-        </Link>
+                  <p>
+                    {posts[topStories[1]]?.description
+                      .substring(
+                        0,
+                        posts[topStories[1]]?.description.indexOf("\n")
+                      )
+                      .trim()}
+                  </p>
+                </div>
+              </div>
+            </Link>
 
-        <Link
-          to={`/post/${posts[topStories[2]]?._id}`}
-          className="link sidebar-links"
-        >
-          <div className="sidebar-top-story">
-            <div className="sidebar-top-img-container">
-              <img src={posts[topStories[2]]?.image} alt="" />
-            </div>
+            <Link
+              to={`/post/${posts[topStories[2]]?._id}`}
+              className="link sidebar-links"
+            >
+              <div className="sidebar-top-story">
+                <div className="sidebar-top-img-container">
+                  <img src={posts[topStories[2]]?.image} alt="" />
+                </div>
 
-            <div className="sidebar-content">
-              <h3>{posts[topStories[2]]?.title}</h3>
+                <div className="sidebar-content">
+                  <h3>{posts[topStories[2]]?.title}</h3>
 
-              <p>
-                {posts[topStories[2]]?.description
-                  .substring(0, posts[topStories[2]]?.description.indexOf("\n"))
-                  .trim()}
-              </p>
-            </div>
-          </div>
-        </Link>
+                  <p>
+                    {posts[topStories[2]]?.description
+                      .substring(
+                        0,
+                        posts[topStories[2]]?.description.indexOf("\n")
+                      )
+                      .trim()}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

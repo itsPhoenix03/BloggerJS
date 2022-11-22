@@ -238,6 +238,26 @@
   color: var(--overlay-color);
 }
 
+.success-box {
+  border: none;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  background: var(--color-hover);
+  transition: translate ease 1s;
+  translate: +102% 0;
+}
+
+.success-box-visible {
+  transition: translate ease 1s;
+  translate: 0;
+}
+
+.success-box > p {
+  font-family: var(--title-font);
+  color: var(--overlay-color);
+}
+
 @media screen and (max-width: 650px) {
   .settings {
     width: 90%;
@@ -329,5 +349,14 @@
     border: none;
     background: rgb(229, 31, 31);
     color: var(--overlay-color);
+  }
+
+  .success-box {
+    bottom: 0%;
+    translate: -102% 0;
+  }
+
+  .success-box-visible {
+    translate: 0;
   }
 }

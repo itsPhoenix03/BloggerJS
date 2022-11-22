@@ -30,6 +30,40 @@
   background-color: #20303c;
 }
 
+.skeleton-sidebar-top-story {
+  margin-top: 0rem;
+  /* background: var(--overlay-color); */
+  height: 25rem;
+  width: 100%;
+  animation: skeleton 1s ease infinite alternate;
+}
+
+@keyframes skeleton {
+  to {
+    opacity: 0.5;
+  }
+}
+
+.skeleton-sidebar-top-img-container {
+  background: var(--overlay-color);
+  height: 50%;
+}
+
+.skeleton-sidebar-content {
+  height: 50%;
+}
+
+.skeleton-sidebar-content > div {
+  background: var(--overlay-color);
+  height: 2.5rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.skeleton-sidebar-content > div:last-child {
+  height: 5rem;
+}
+
 .sidebar-top-story {
   /* margin-left: 3rem; */
   /* width: 85%; */

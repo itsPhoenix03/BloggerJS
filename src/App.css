@@ -10,6 +10,10 @@
   --background-color: rgb(249 232 220);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .App {
   /* border: 1px solid red; */
   background-color: rgb(249 232 220);

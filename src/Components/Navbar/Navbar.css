@@ -126,7 +126,6 @@
     rgba(253, 240, 228, 0.99),
     rgba(253, 240, 228, 0.75)
   );
-  transition: 0.5 ease;
   flex-direction: column;
   z-index: 5;
 }

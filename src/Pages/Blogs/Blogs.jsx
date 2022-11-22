@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
+import Loading from "../../Components/Loading/Loading";
 import { Request } from "../../Request";
 import "./Blogs.css";
 
 const Blogs = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await Request.get(`/posts/`);
       setPosts(res.data);
+      setIsLoading(false);
     };
 
     fetchPosts();
@@ -18,7 +21,9 @@ const Blogs = () => {
 
   // console.log(posts[3]?.title);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <>
       <div className="blogs-wrapper">
         <div className="blogs-container-top">
