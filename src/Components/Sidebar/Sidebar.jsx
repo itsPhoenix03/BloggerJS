@@ -35,17 +35,19 @@ const Sidebar = ({ postId = null }) => {
         </div>
 
         {isLoading ? (
-          Array(3).fill(
-            <div className="skeleton-sidebar-top-story" key={Math.random()}>
-              <div className="skeleton-sidebar-top-img-container" />
+          Array(3)
+            .fill(
+              <div className="skeleton-sidebar-top-story">
+                <div className="skeleton-sidebar-top-img-container" />
 
-              <div className="skeleton-sidebar-content">
-                <div />
+                <div className="skeleton-sidebar-content">
+                  <div />
 
-                <div />
+                  <div />
+                </div>
               </div>
-            </div>
-          )
+            )
+            .map((skeletonPost) => skeletonPost)
         ) : (
           <>
             <Link

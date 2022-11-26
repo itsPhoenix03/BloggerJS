@@ -34,9 +34,15 @@
 }
 
 @media screen and (max-width: 650px) {
+  .loading-wrapper {
+    padding: 1rem;
+    height: 90vh;
+  }
+
   .loading-statement {
-    top: 25rem;
-    left: 0;
+    position: relative;
+    top: auto;
+    left: auto;
     font-size: 1.15rem;
   }
 }
