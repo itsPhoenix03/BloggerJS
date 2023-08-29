@@ -1,5 +1,6 @@
 .header {
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
+  width: 87rem;
 }
 
 .header-title {
@@ -17,7 +18,7 @@
 }
 
 .header-title > span {
-  width: 90%;
+  width: 100%;
   text-align: end;
   font-family: "Josefin Sans", sans-serif;
   font-style: italic;
@@ -25,7 +26,8 @@
 
 @media screen and (max-width: 650px) {
   .header {
-    margin: 1.5rem 0;
+    /* margin: 1.5rem auto; */
+    width: 90vw;
   }
 
   .header-title {
@@ -33,6 +35,6 @@
   }
 
   .header-title > h4 {
-    font-size: 1rem;
+    font-size: 1.75rem;
   }
 }
