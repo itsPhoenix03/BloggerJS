@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingSvg from "../../Assets/LoadingScreen.svg";
+import { PuffLoader } from "react-spinners";
 import "./Loading.css";
 
 const Loading = () => {
@@ -7,8 +7,17 @@ const Loading = () => {
     <div className="loading-wrapper">
       <div className="loading-content-wrapper">
         <div className="loading-content">
-          <div className="image-container">
-            <img src={LoadingSvg} alt="" />
+          <div className="loader-container">
+            <PuffLoader
+              height="90"
+              width="90"
+              radius={1}
+              color="#9d693f"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
           </div>
 
           <div className="loading-statement">

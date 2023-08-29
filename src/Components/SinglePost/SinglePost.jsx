@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 import { Request } from "../../Request";
@@ -22,6 +22,9 @@ const SinglePost = ({ user }) => {
       setPost(res.data);
       setTitle(res.data.title);
       setContent(res.data.description);
+
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     };
 
     fetchSinglePost();
@@ -133,7 +136,12 @@ const SinglePost = ({ user }) => {
         )}
       </div>
 
-      <Sidebar postId={id} />
+      {useMemo(
+        () => (
+          <Sidebar postId={id} />
+        ),
+        [id]
+      )}
     </div>
   );
 };

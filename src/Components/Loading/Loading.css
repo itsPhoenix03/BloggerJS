@@ -1,35 +1,31 @@
 .loading-wrapper {
-  height: 86vh;
+  height: 90vh;
 }
 
 .loading-content-wrapper {
-  margin-top: 5vh;
+  align-content: center;
+  height: 100%;
 }
 
 .loading-content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 100%;
+}
+
+.loader-container {
   height: fit-content;
   width: fit-content;
-  margin: auto;
-}
-
-.image-container {
-  height: 60vh;
-}
-
-.image-container > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 .loading-statement {
-  position: absolute;
-  top: 33rem;
-  left: 38rem;
-
   text-align: center;
   font-family: var(--subtitle-font);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--text-color);
 }
 

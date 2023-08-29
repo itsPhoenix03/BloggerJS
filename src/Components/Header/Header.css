@@ -1,18 +1,26 @@
 .header {
-  margin: 1.5rem 0 7rem 0;
+  margin: 1.5rem 0;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-title > h4 {
   color: #20303c;
   font-family: "Fraunces", "Josefin Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 
-.header-img {
-  width: 100%;
-  height: 40rem;
-  object-fit: cover;
+.header-title > span {
+  width: 90%;
+  text-align: end;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: italic;
 }
 
 @media screen and (max-width: 650px) {
